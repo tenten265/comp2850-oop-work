@@ -7,9 +7,9 @@ fun main(){
     val root2 = Math.sqrt(2.0)
 
     println(myAge::class)
-    println(myAge::class)
-    println(myAge::class)
-    println(myAge::class)
-    println(myAge::class)
-    println(myAge::class)
+    println(universeAge::class)
+    println(status::class)
+    println(name::class)
+    println(height::class)
+    println(root2::class)
 }
