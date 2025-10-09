@@ -1,10 +1,9 @@
 // Task 5.1.1: anagram checking using a function
-fun anagrams(first: String, second: String): Boolean {
-    if (first.length != second.length) {
-        return false
-    }
-    val firstChars = first.lowercase().toList().sorted()
-    val secondChars = second.lowercase().toList().sorted()
+infix fun String.isAnagramOf(other: String): Boolean {
+    if (this.length != other.length) return false
+
+    val firstChars = this.lowercase().toList().sorted()
+    val secondChars = other.lowercase().toList().sorted()
     return firstChars == secondChars
 }
 
@@ -14,7 +13,7 @@ fun main(){
     val sec = readln()
     
 
-    if (anagrams(fir, sec)){
+    if (fir isAnagramOf sec){
         println(" $fir and $sec are Anagrams ")
     }
     else{

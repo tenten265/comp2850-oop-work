@@ -1,18 +1,17 @@
 // Task 5.1.2: die rolling simulation
 import kotlin.random.Random
 
-fun rollDie(sides: Int) {
-    if (sides in setOf(4, 6, 8, 10, 12, 20)) {
-        println("Rolling a d$sides...")
-        val result = Random.nextInt(1, sides + 1)
-        println("You rolled $result")
-    }
-    else {
+fun rollDie(sides: Int = 6) {
+    if (sides < 1) {
         println("Error: cannot have a $sides-sided die")
+        return
     }
+    println("Rolling a d$sides...")
+    val result = Random.nextInt(1, sides + 1)
+    println("You rolled $result")
 }
 
-fun readInt(stan : String): Int{
+fun readInt(stan :String): Int{
         println(stan)
         val rent = readln()
         return (rent.toInt())
@@ -22,4 +21,7 @@ fun readInt(stan : String): Int{
 fun main(){
     val side = readInt("Enter number of sides: ")
     rollDie(side)
+
+    println("\nNow rolling a default d6...")
+    rollDie() 
 }
