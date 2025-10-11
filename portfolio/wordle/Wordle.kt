@@ -1,4 +1,4 @@
-
+import kotlin.random.Random
 
 import kotlin.io.readLine
 fun isValid(word: String):  Boolean{
