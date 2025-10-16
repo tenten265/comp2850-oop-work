@@ -1,14 +1,10 @@
 import kotlin.random.Random
 import kotlin.io.readLine
+import isValid
 
 //Check if the word value == 5
 fun isValid(word: String):  Boolean{
-    if(word.length == 5){
-        return true
-    }
-    else{
-        return false 
-    }
+    return word.length == 5
 }
 
 
@@ -20,6 +16,9 @@ fun readWordList(filename: String): MutableList<String>{
 
 // Pick a random word and return that word 
 fun pickRandomWord(words: MutableList<String>): String{
+    if(words.isEmpty()){
+        println("Word List is Empty")
+    }
     val rand_word = words.random()
     words.remove(rand_word)
     return rand_word
@@ -28,18 +27,15 @@ fun pickRandomWord(words: MutableList<String>): String{
 
 // Count the Number of attempts 
 fun obtainGuess(attempt: Int): String{
-    val attempts = 1
-
     while(true){
-        val guess = readln().trim()
+        println("Attempt $attempt: ")
+        val guess = readln().trim().uppercase()
 
-        if (guess == attempt){
+        if (guess != null && isValid(guess)){
             return guess
-            break
+        }else{
+        println("Invalid Guess. Please enter a 5 letter word")
         }
-    }else{
-        print("Try again")#
-        attempts++ 
     }
 }
 
@@ -75,8 +71,8 @@ fun displayGuess(guess: String, matches: List<Int>){
             displayed.append(guess[i])
         }
         else{
-            displayed.append("?")
+            displayed.append("")
         }
     }
-    println(displayed.toString)
+    println(displayed.toString())
 }
