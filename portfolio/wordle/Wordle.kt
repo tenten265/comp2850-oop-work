@@ -1,6 +1,7 @@
 import kotlin.random.Random
 import kotlin.io.readLine
 import isValid
+import java.io.File
 
 //Check if the word value == 5
 fun isValid(word: String):  Boolean{
@@ -31,7 +32,7 @@ fun obtainGuess(attempt: Int): String{
         println("Attempt $attempt: ")
         val guess = readln().trim().uppercase()
 
-        if (guess != null && isValid(guess)){
+        if (isValid(guess)){
             return guess
         }else{
         println("Invalid Guess. Please enter a 5 letter word")
@@ -67,7 +68,7 @@ fun displayGuess(guess: String, matches: List<Int>){
 
     
     for (i in 0 until 5){
-        if (i < guess.length && i < matches.length && guess[i] == matches[i]){
+        if (i < guess.length && i < matches.size && matches[i] == 1){
             displayed.append(guess[i])
         }
         else{

@@ -1,3 +1,5 @@
+
+
 fun main(){
 
     val word_file = "data/words.txt"
@@ -7,12 +9,13 @@ fun main(){
 
     if (word.isEmpty()){
         println("Error: The list is empty ")
+        return
     }
 
     val target = pickRandomWord(word)
 
     println("Welcome to Teni's SImplified Worlde Project")
-    println("Your ain objective is to Guess $target in the $max_attempt. Goodluck")
+    println("Your ain objective is to Guess'$target' in $max_attempt attempts. Goodluck")
 
     var att = 1
     var win = false
@@ -25,7 +28,7 @@ fun main(){
         
         displayGuess(currentAtt, mat)
 
-        val tot_mat = true
+        var tot_mat = true
         for(mats in mat){
             if (mats != 1){
                 tot_mat = false
