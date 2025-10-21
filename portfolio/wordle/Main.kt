@@ -1,5 +1,4 @@
 
-
 fun main(){
 
     val word_file = "data/words.txt"
