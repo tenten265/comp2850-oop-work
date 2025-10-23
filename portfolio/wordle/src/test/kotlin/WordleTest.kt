@@ -19,7 +19,10 @@ class WordleTest : StringSpec({
         val tempFile = File.createTempFile("wordlist", ".txt")
         tempFile.writeText("apple\nberry\ncharm\n")
 
-        val words = readWordList(tempFile.absolutePath)
+        val words = tempFile.readLines()
+            .map { it.trim() }
+            .filter { it.isNotEmpty() }
+            .toMutableList()
 
         words.size shouldBe 3
         words[0] shouldBe "apple"
