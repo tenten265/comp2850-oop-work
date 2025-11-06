@@ -9,16 +9,14 @@ fun isValid(word: String): Boolean {
 
 // Read word from the word.txt file 
 fun readWordList(filename: String): MutableList<String> {
-    // Read lines, trim, uppercase and keep only valid 5-letter words
-    return try {
-        File(filename).readLines()
-            .map { it.trim().uppercase() }
-            .filter { isValid(it) }
-            .toMutableList()
-    } catch (e: Exception) {
-        // If file doesn't exist or can't be read, return empty list
-        mutableListOf()
-    }
+    // Read lines, trim, uppercase and keep only valid 5-letter words.
+    // Return an empty list if the file doesn't exist or can't be read.
+    val f = File(filename)
+    if (!f.exists() || !f.canRead()) return mutableListOf()
+    return f.readLines()
+        .map { it.trim().uppercase() }
+        .filter { isValid(it) }
+        .toMutableList()
 }
 
 
@@ -83,4 +81,4 @@ fun displayGuess(guess: String, matches: List<Int>){
         }
             }
                 println(displayed.toString())
-                }
+}

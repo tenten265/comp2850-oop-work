@@ -4,7 +4,7 @@ fun main(){
     val word_file = "data/words.txt"
     val max_attempt = 10
 
-    val word = readWordList(word_file)
+   val word = readWordList(word_file)
 
     if (word.isEmpty()){
         println("Error: The list is empty ")

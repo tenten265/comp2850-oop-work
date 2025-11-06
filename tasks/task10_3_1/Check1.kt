@@ -10,5 +10,8 @@ fun main() {
     val input = readLine()
 
     println("Input: $input")
-    printReversed(input)       // replace this line
+    if (input != null) {
+        printReversed(input)  
+    }
+         // replace this line
 }
